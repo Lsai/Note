@@ -1,0 +1,29 @@
+{% extends "Login/base.html" %}
+{% load staticfiles %}
+{% block title %}Article Detail{% endblock %}
+{% block username %}Welcome,
+    {% if user.name %}
+        {{ user.name }}
+    {% else %}
+        {{ user.email }}
+    {% endif %}
+    {% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+
+                <div class="col-md-6 col-md-offset-1">
+
+                    <br>
+                    <h3>Author：{{ book.author }}</h3>
+                    <h3>Category：{{ book.category }}</h3>
+                    <h3>Date：{{ book.date|date:"Y-m-d" }}</h3>
+                    <h3>Content：{{ book.content}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

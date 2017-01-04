@@ -1,0 +1,56 @@
+{% extends "Login/base.html" %}
+{% block title %}Modify Name{% endblock %}
+{% block username %}Welcome,
+    {% if user.name %}
+        {{ user.name }}
+    {% else %}
+        {{ user.email }}
+    {% endif %}
+    {% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+                {% if state == 'success' %}
+                    <div class="well">
+                        <h2 class="text-success text-center">Modify Success</h2>
+                    </div>
+                {% elif state == 'error' %}
+                    <div class="well">
+                        <h2 class="text-danger text-center">Modify Fial</h2>
+                    </div>
+                {% endif %}
+                <form method="POST" role="form" class="form-horizontal" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h1 class="form-signin-heading text-center">Modify Name</h1>
+                    <div class="form-group">
+                        <label for="id_category" class="col-md-3 control-label"></label>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_name" class="col-md-3 control-label">New Name：</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="id_name" required name="name" autofocus>
+                        </div>
+                    </div>
+
+<div class="form-group">
+                        <label for="id_category" class="col-md-3 control-label"></label>
+                        <div class="col-md-9">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-4 col-md-offset-4">
+                            <button class="btn btn btn-primary btn-block" type="submit">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
